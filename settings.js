@@ -117,7 +117,7 @@ interactive("switch-to-other-buffer",
                     switch_to_buffer(I.window, blist[1]);
             });
 
-// Restore killed buffers
+// Restore killed buffers: <http://conkeror.org/Tips#Restore_Killed_Buffer_Url>
 var kill_buffer_original = kill_buffer_original || kill_buffer;
 var killed_buffer_urls = [];
 
@@ -134,12 +134,12 @@ interactive("restore-killed-buffer-url",
                 if (killed_buffer_urls.length !== 0) {
                     var url = yield I.minibuffer.read(
                         $prompt = "Restore killed url:",
-                        $completer = all_word_completer($completions = killed_buffer_urls),
+                        $completer = new all_word_completer($completions = killed_buffer_urls, $require_match = true),
                         $default_completion = killed_buffer_urls[killed_buffer_urls.length - 1],
                         $auto_complete = "url",
                         $auto_complete_initial = true,
                         $auto_complete_delay = 0,
-                        $match_required);
+                        $require_match = true);
                     load_url_in_new_buffer(url);
                 }
                 else {
@@ -195,14 +195,16 @@ interactive("follow-previous",
             alternates(follow_current_buffer, follow_new_buffer, follow_new_window),
             $browser_object = browser_object_relationship_previous);
 
-// overrided from content-buffer.js
+// Overrided from modules/content-buffer.js: "$select" keyword is added
 minibuffer.prototype.read_url = function () {
     keywords(arguments, $prompt = "URL:", $history = "url", $initial_value = "",
              $use_webjumps = url_completion_use_webjumps,
              $use_history = url_completion_use_history,
              $use_bookmarks = url_completion_use_bookmarks,
+             $select = minibuffer_read_url_select_initial,
              $sort_order = url_completion_sort_order);
-    var completer = url_completer($use_webjumps = arguments.$use_webjumps,
+    var completer = new url_completer(
+        $use_webjumps = arguments.$use_webjumps,
         $use_bookmarks = arguments.$use_bookmarks,
         $use_history = arguments.$use_history,
         $sort_order = arguments.$sort_order);
@@ -212,12 +214,11 @@ minibuffer.prototype.read_url = function () {
         $completer = completer,
         $initial_value = arguments.$initial_value,
         $auto_complete = "url",
-        // added string
-        $select = (arguments.$select == null) ? minibuffer_read_url_select_initial : arguments.$select,
-        $match_required = false);
+        $select = arguments.$select,
+        $require_match = false);
     if (!possibly_valid_url(result) && !get_webjump(result))
         result = try_read_url_handlers(result);
-    if (result == "")
+    if (result == "") // well-formedness check. (could be better!)
         throw ("invalid url or webjump (\""+ result +"\")");
     yield co_return(load_spec(result));
 };
