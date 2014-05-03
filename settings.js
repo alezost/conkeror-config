@@ -195,34 +195,6 @@ interactive("follow-previous",
             alternates(follow_current_buffer, follow_new_buffer, follow_new_window),
             $browser_object = browser_object_relationship_previous);
 
-// Overrided from modules/content-buffer.js: "$select" keyword is added
-minibuffer.prototype.read_url = function () {
-    keywords(arguments, $prompt = "URL:", $history = "url", $initial_value = "",
-             $use_webjumps = url_completion_use_webjumps,
-             $use_history = url_completion_use_history,
-             $use_bookmarks = url_completion_use_bookmarks,
-             $select = minibuffer_read_url_select_initial,
-             $sort_order = url_completion_sort_order);
-    var completer = new url_completer(
-        $use_webjumps = arguments.$use_webjumps,
-        $use_bookmarks = arguments.$use_bookmarks,
-        $use_history = arguments.$use_history,
-        $sort_order = arguments.$sort_order);
-    var result = yield this.read(
-        $prompt = arguments.$prompt,
-        $history = arguments.$history,
-        $completer = completer,
-        $initial_value = arguments.$initial_value,
-        $auto_complete = "url",
-        $select = arguments.$select,
-        $require_match = false);
-    if (!possibly_valid_url(result) && !get_webjump(result))
-        result = try_read_url_handlers(result);
-    if (result == "") // well-formedness check. (could be better!)
-        throw ("invalid url or webjump (\""+ result +"\")");
-    yield co_return(load_spec(result));
-};
-
 interactive("find-alternate-select-url", "Edit the current URL in the minibuffer",
     "find-url",
     $browser_object =
