@@ -225,6 +225,11 @@ undefine_key(duckduckgo_keymap, "k");
 undefine_key(duckduckgo_keymap, "j");
 
 ////////////////////////////////////////////////////////////////
+/// Wikipedia
+
+define_key(wikipedia_keymap, "M-l", "wikipedia-other-language");
+
+////////////////////////////////////////////////////////////////
 /// Player mode
 
 define_key(player_keymap, "space", "player-play-or-pause");
