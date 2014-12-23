@@ -189,6 +189,7 @@ define_key(default_global_keymap, "k b",     "kill-buffer");
 define_key(default_global_keymap, "k k",     "kill-current-buffer");
 define_key(default_global_keymap, "k f",     "delete-window");
 
+// From <http://conkeror.org/Tips?highlight=%28tips%29#Bind_Number_Keys_to_Switch_to_Buffers_1-10>
 // "1..0" to switch to buffer; "k 1..0" to kill buffer
 function define_switch_buffer_key (key, buf_num) {
     define_key(default_global_keymap, key,
