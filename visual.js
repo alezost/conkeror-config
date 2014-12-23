@@ -26,7 +26,7 @@ Components.utils.import("resource://gre/modules/NetUtil.jsm");
 
 // Define 2 interactive commands for a theme NAME with stylesheets
 // defined in a css FILE:
-// - "load-NAME-theme" applies the theme to the current document;
+// - "apply-NAME-theme" applies the theme to the current document;
 // - "toggle-NAME-theme" loads/unloads the theme globally.
 function define_theme (name, file) {
     var styles;
