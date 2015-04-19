@@ -9,6 +9,7 @@ session_pref("browser.dom.window.dump.enabled", false);
 
 hints_auto_exit_delay = 200;
 minibuffer_read_url_select_initial = true;
+isearch_scroll_center_vertically = true;
 
 // the method of loading url (from argument) when conkeror
 // is opened again (externally)
