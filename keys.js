@@ -117,6 +117,13 @@ define_key(hint_keymap, "C-e", "hints-next");
 define_key(hint_keymap, "M-e", "hints-next");
 
 ////////////////////////////////////////////////////////////////
+/// Formfill
+
+define_key(formfill_keymap, "C-.", "formfill-previous");
+define_key(formfill_keymap, "C-e", "formfill-next");
+undefine_key(formfill_keymap, "C-p");
+
+////////////////////////////////////////////////////////////////
 /// Minibuffer
 
 define_key(minibuffer_keymap, "M-.", "minibuffer-history-previous");
