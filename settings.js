@@ -50,7 +50,7 @@ interactive("adblockplus-filters",
 /// External programs
 
 editor_shell_command = "emacsclient";
-set_protocol_handler("mailto", make_file("~/bin/mailto"));
+set_protocol_handler("mailto", find_file_in_path("mailto"));
 content_handlers.set("application/x-bittorrent", content_handler_open_default_viewer);
 external_content_handlers.set("application/pdf", "zathura");
 external_content_handlers.set("application/x-bittorrent", "torrent_job");
