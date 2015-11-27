@@ -233,8 +233,8 @@ define_webjump("python3", "http://docs.python.org/py3k/search.html?q=%s",
                $alternative="http://docs.python.org/3/library");
 define_webjump("pypi", "https://pypi.python.org/pypi?:action=search&term=%s&submit=search",
                $alternative="https://pypi.python.org/pypi");
-define_webjump("mana", "http://wiki.themanaworld.org/index.php/Special:Search/%s",
-               $alternative="http://wiki.themanaworld.org/index.php");
+define_webjump("mana", "https://www.themanaworld.org/index.php/Special:Search/%s",
+               $alternative="https://www.themanaworld.org/index.php");
 define_webjump("ip", "http://www.ip-address.org/lookup/ip-locator.php?track=%s",
                $alternative="http://www.ip-address.org/");
 define_webjump("multitran", "http://www.multitran.ru/c/M.exe?CL=1&s=%s");
