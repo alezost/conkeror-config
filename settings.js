@@ -32,10 +32,10 @@ tab_bar_show_icon = true;
 clicks_in_new_buffer_button = 1; // middle button
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 
-// download directory
 function update_save_path (info) {
+    // Set download directory.
     // cwd = info.target_file.parent;
-    cwd = make_file("~/temp");
+    cwd = make_file("~/tmp");
 }
 add_hook("download_added_hook", update_save_path);
 
