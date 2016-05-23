@@ -18,16 +18,6 @@ url_remoting_fn = load_url_in_new_buffer;
 can_kill_last_buffer = false;
 download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
 
-// require("favicon");
-// add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
-// add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
-remove_hook("mode_line_hook", mode_line_adder(clock_widget));
-
-// require("new-tabs.js");
-tab_bar_button_close = 1;
-tab_bar_show_icon = true;
-// tab_bar_mode(false);
-
 // require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_button = 1; // middle button
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
@@ -149,24 +139,6 @@ interactive("restore-killed-buffer-url",
                     I.window.minibuffer.message("No killed buffers");
                 }
             });
-
-////////////////////////////////////////////////////////////////
-/// Toggling bars
-
-// set to STATE or toggle if STATE is not a boolean
-// the visibility of tab_bar, minibuffer and mode_line
-function toggle_all_bars (window, state) {
-    if ( !(state === true || state === false) )
-        state = window.minibuffer.element.collapsed;
-    window.minibuffer.element.collapsed = !state;
-    tab_bar_mode(state);
-    if (window.mode_line)
-        window.mode_line.container.collapsed = !state;
-}
-
-interactive("toggle-all-bars",
-            "Hide or show tab-bar, minibuffer and mode-line",
-            function (I) { toggle_all_bars(I.window) });
 
 ////////////////////////////////////////////////////////////////
 /// Finding urls, history

@@ -1,11 +1,25 @@
-/****************************************************************
-Used resources:
+////////////////////////////////////////////////////////////////
+/// Mode line and bars
 
-  http://conkeror.org/Appearance
-  http://conkeror.org/Tips#Darken_the_current_page
-  https://github.com/scottjad/dotfiles/blob/master/.conkerorrc/color-theme.js
-  https://developer.mozilla.org/en-US/Add-ons/Code_snippets/File_I_O
-****************************************************************/
+tab_bar_button_close = 1;
+tab_bar_show_icon = true;
+
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+
+function toggle_all_bars (window, state) {
+    // Set to STATE or toggle if STATE is not a boolean
+    // the visibility of tab_bar, minibuffer and mode_line.
+    if ( !(state === true || state === false) )
+        state = window.minibuffer.element.collapsed;
+    window.minibuffer.element.collapsed = !state;
+    tab_bar_mode(state);
+    if (window.mode_line)
+        window.mode_line.container.collapsed = !state;
+}
+
+interactive("toggle-all-bars",
+            "Hide or show tab-bar, minibuffer and mode-line",
+            function (I) { toggle_all_bars(I.window) });
 
 ////////////////////////////////////////////////////////////////
 /// Colors
@@ -17,6 +31,12 @@ img_hint_background_color = "#FCF9A5";
 
 ////////////////////////////////////////////////////////////////
 /// CSS themes
+
+// Used resources:
+//   http://conkeror.org/Appearance
+//   http://conkeror.org/Tips#Darken_the_current_page
+//   https://github.com/scottjad/dotfiles/blob/master/.conkerorrc/color-theme.js
+//   https://developer.mozilla.org/en-US/Add-ons/Code_snippets/File_I_O
 
 var global_themes = {};
 var css_dir = al_load_dir.clone();
