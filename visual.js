@@ -4,6 +4,20 @@
 tab_bar_button_close = 1;
 tab_bar_show_icon = true;
 
+// Widget to display profile name in the mode-line.
+function profile_name_widget (window) {
+    this.class_name = "profile-name-widget";
+    text_widget.call(this, window);
+}
+profile_name_widget.prototype = {
+    constructor: profile_name_widget,
+    __proto__: text_widget.prototype,
+    update: function () {
+        this.view.text = current_profile;
+    }
+};
+
+add_hook("mode_line_hook", mode_line_adder(profile_name_widget));
 remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
 function toggle_all_bars (window, state) {
