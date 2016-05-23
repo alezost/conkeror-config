@@ -12,6 +12,7 @@ require("favicon");
 require("new-tabs.js");
 require("clicks-in-new-buffer.js");
 
+var current_profile = get_current_profile();
 var al_load_dir;
 
 function al_load (relpath) {
