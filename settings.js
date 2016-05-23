@@ -1,12 +1,19 @@
 /// Misc
 
-homepage = "https://bbs.archlinux.org/search.php?action=show_recent";
-
 session_pref("general.useragent.compatMode.firefox", true);
 session_pref('browser.history_expire_days', 30);
 session_pref("browser.enable_automatic_image_resizing", true);
 session_pref("browser.dom.window.dump.enabled", false);
 session_pref("full-screen-api.enabled", true);
+
+if (current_profile == "tor") {
+    session_pref("network.proxy.type", 1);
+    session_pref("network.proxy.socks_remote_dns", true);
+    session_pref("network.proxy.socks", "localhost");
+    session_pref("network.proxy.socks_port", 9050);
+} else {
+    homepage = "https://bbs.archlinux.org/search.php?action=show_recent";
+}
 
 hints_auto_exit_delay = 200;
 minibuffer_read_url_select_initial = true;
