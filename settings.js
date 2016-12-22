@@ -205,9 +205,11 @@ define_webjump("archwiki", "https://wiki.archlinux.org/index.php?search=%s",
                $alternative="http://www.archlinux.org");
 define_webjump("arch-package", "https://www.archlinux.org/packages/?sort=&q=%s&maintainer=&flagged=",
                $alternative="https://www.archlinux.org/packages");
-define_webjump("youtube", "http://www.youtube.com/results?search_query=%s&search=Search");
+define_webjump("youtube", "http://www.youtube.com/results?search_query=%s&search=Search",
+               $alternative="https://www.youtube.com/feed/subscriptions");
 define_webjump("youtube-user", "http://youtube.com/profile_videos?user=%s");
-define_webjump("stackoverflow","http://stackoverflow.com/search?q=%s", $alternative="http://stackoverflow.com");
+define_webjump("stackoverflow", "http://stackoverflow.com/search?q=%s",
+               $alternative="http://stackoverflow.com");
 define_webjump("python2", "http://docs.python.org/search.html?q=%s");
 define_webjump("python3", "http://docs.python.org/py3k/search.html?q=%s",
                $alternative="http://docs.python.org/3/library");
