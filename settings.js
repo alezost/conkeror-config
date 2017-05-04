@@ -58,12 +58,12 @@ external_content_handlers.set("application/x-bittorrent", "torrent_job");
 /// Interacting with org-mode
 
 function org_store_link (url, title, window) {
-    var cmd_str =
-        'emacsclient \"org-protocol:/store-link:/'+url+'/'+title+'\"';
+    var cmd_str = '\"org-protocol:/store-link:/'+url+'/'+title+'\"';
     if (window != null) {
       window.minibuffer.message('Issuing ' + cmd_str);
     }
-    shell_command_blind(cmd_str);
+    shell_command_blind('emacsclient ' + cmd_str);
+    shell_command_blind('emacsclient -s server-emms ' + cmd_str);
 }
 interactive("org-store-link", "Store url and title via org-protocol",
           function (I) {
