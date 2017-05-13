@@ -1,6 +1,7 @@
 /// Misc
 
 session_pref("general.useragent.compatMode.firefox", true);
+session_pref("general.useragent.extra.conkeror", "");
 session_pref('browser.history_expire_days', 30);
 session_pref("browser.enable_automatic_image_resizing", true);
 session_pref("browser.dom.window.dump.enabled", false);
