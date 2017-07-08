@@ -223,7 +223,8 @@ define_webjump("ip", "http://www.ip-address.org/lookup/ip-locator.php?track=%s",
 define_webjump("multitran", "http://www.multitran.ru/c/M.exe?CL=1&s=%s");
 // french - http://www.multitran.ru/c/m.exe?l1=4&l2=2&CL=1&a=0
 define_webjump("yandex", "http://yandex.ru/yandsearch?text=%s");
-define_webjump("github", "http://github.com/search?q=%s&type=Everything");
+define_webjump("github", "http://github.com/search?q=%s&type=Everything",
+               $alternative="https://github.com/notifications");
 
 // selection searches
 function create_selection_search(webjump, key) {
