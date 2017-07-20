@@ -42,12 +42,12 @@ function al_bind_edit_keys (keymap) {
 
 // Scrolling screen
 function al_bind_scroll_keys (keymap) {
-    define_key(keymap, "C-s-o", "cmd_scrollLeft");
-    define_key(keymap, "C-s-u", "cmd_scrollRight");
-    define_key(keymap, "C-s-.", "cmd_scrollLineUp");
-    define_key(keymap, "C-s-e", "cmd_scrollLineDown");
-    define_key(keymap, "C-s-a", "scroll-beginning-of-line");
-    define_key(keymap, "C-s-i", "scroll-end-of-line");
+    define_key(keymap, "C-M-s-o", "cmd_scrollLeft");
+    define_key(keymap, "C-M-s-u", "cmd_scrollRight");
+    define_key(keymap, "C-M-s-.", "cmd_scrollLineUp");
+    define_key(keymap, "C-M-s-e", "cmd_scrollLineDown");
+    define_key(keymap, "C-M-s-a", "scroll-beginning-of-line");
+    define_key(keymap, "C-M-s-i", "scroll-end-of-line");
     define_key(keymap, "s-.",   "cmd_scrollPageUp");
     define_key(keymap, "s-e",   "cmd_scrollPageDown");
     define_key(keymap, "s-a",   "cmd_scrollTop");
