@@ -78,6 +78,9 @@ function al_bind_misc_keys (keymap) {
 
 define_key(default_base_keymap, "C-4", "universal-argument");
 define_key(default_global_keymap, "C-t C-c", "quit");
+define_key(default_global_keymap, "C-t 5 j", "find-url-new-window");
+define_key(default_global_keymap, "C-t 5 2", "make-window");
+define_key(default_global_keymap, "C-t 5 0", "delete-window");
 define_key(default_global_keymap, "M-t", "execute-extended-command");
 define_key(default_global_keymap, "M-v", "eval-expression");
 define_key(default_global_keymap, "M-V t", function (I) {tab_bar_mode()});
