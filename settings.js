@@ -59,7 +59,7 @@ external_content_handlers.set("application/x-bittorrent", "torrent_job");
 /// Interacting with org-mode
 
 function org_store_link (url, title, window) {
-    var cmd_str = '\"org-protocol:/store-link:/'+url+'/'+title+'\"';
+    var cmd_str = '\"org-protocol://store-link?url='+url+'&title='+title+'\"';
     if (window != null) {
       window.minibuffer.message('Issuing ' + cmd_str);
     }
